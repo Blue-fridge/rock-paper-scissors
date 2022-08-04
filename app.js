@@ -39,6 +39,7 @@ function comparePlayerAndChoices(playerSelection, computerSelection) {
   }
 }
 
+/*
 function playGame() {
   for (let round = 0; round <= 2; round += 1) {
     const playerSelection = prompt('rock, paper or scissors?').toLocaleLowerCase();
@@ -46,7 +47,7 @@ function playGame() {
     alert(comparionResult);
   }
 }
-
+*/
 function displayWinner() {
   if (playerScore > compScore) {
     alert(`You Win! \n Your Score: ${playerScore} \n computer score: ${compScore} \n how many ties you had: ${ties}`);
@@ -57,5 +58,6 @@ function displayWinner() {
   }
 }
 
+const btn = document.getElementsByClassName('rps-selection')
 playGame();
 displayWinner();
