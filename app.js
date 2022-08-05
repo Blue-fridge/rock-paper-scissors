@@ -1,8 +1,8 @@
 const gameOptions = ['rock', 'paper', 'scissors'];
 
 // this function picks a random choice from gameOPtions variable
-function getRandomItem(gameOptionsItem) {
-  return gameOptionsItem[Math.floor(Math.random() * gameOptionsItem.length)];
+function getRandomItem(gameOptions) {
+  return gameOptions[Math.floor(Math.random() * gameOptions.length)];
 }
 
 const computerSelection = getRandomItem(gameOptions);
@@ -10,7 +10,7 @@ let playerScore = 0;
 let compScore = 0;
 let ties = 0;
 
-function comparePlayerAndChoices(playerSelection, computerSelection) {
+function comparePlayerAndCompSelection(playerSelection, computerSelection) {
   // scissors beats paper
   if (playerSelection === 'scissors' && computerSelection === 'paper') {
     alert('You Won!, scissors beats paper');
@@ -40,14 +40,19 @@ function comparePlayerAndChoices(playerSelection, computerSelection) {
 }
 
 /*
-function playGame() {
+function playRound() {
   for (let round = 0; round <= 2; round += 1) {
     const playerSelection = prompt('rock, paper or scissors?').toLocaleLowerCase();
-    const comparionResult = comparePlayerAndChoices(playerSelection, computerSelection);
-    alert(comparionResult);
+    const compareResult = comparePlayerAndCompSelection(playerSelection, computerSelection);
+    alert(compareResult);
   }
 }
 */
+
+const btn = document.getElementsByClassName('rps-selection');
+btn.addEventListener('click, playRound()')
+console.log(btn)
+
 function displayWinner() {
   if (playerScore > compScore) {
     alert(`You Win! \n Your Score: ${playerScore} \n computer score: ${compScore} \n how many ties you had: ${ties}`);
@@ -58,6 +63,6 @@ function displayWinner() {
   }
 }
 
-const btn = document.getElementsByClassName('rps-selection')
+
 playGame();
 displayWinner();
