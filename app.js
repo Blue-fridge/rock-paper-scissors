@@ -6,6 +6,7 @@ function getRandomItem(gameOptions) {
 }
 
 const computerSelection = getRandomItem(gameOptions);
+let playerSelection;
 let playerScore = 0;
 let compScore = 0;
 let ties = 0;
@@ -39,30 +40,58 @@ function comparePlayerAndCompSelection(playerSelection, computerSelection) {
   }
 }
 
-/*
+
 function playRound() {
   for (let round = 0; round <= 2; round += 1) {
-    const playerSelection = prompt('rock, paper or scissors?').toLocaleLowerCase();
-    const compareResult = comparePlayerAndCompSelection(playerSelection, computerSelection);
-    alert(compareResult);
+
+    const rockBtn = document.getElementsByClassName('rock');
+    rockBtn[0].addEventListener('click', selectRock);
+
+    const paperBtn = document.getElementsByClassName('paper');
+    paperBtn[0].addEventListener('click', selectPaper);
+
+    const scissorsBtn = document.getElementsByClassName('scissors');
+    scissorsBtn[0].addEventListener('click', selectScissors);
   }
 }
-*/
 
-const btn = document.getElementsByClassName('rps-selection');
-btn.addEventListener('click, playRound()')
-console.log(btn)
+
+function selectRock(){
+  playerSelection = 'rock';
+  console.log(playerSelection)
+
+  const compareResult = comparePlayerAndCompSelection(playerSelection, computerSelection);
+  console.log(compareResult);
+}
+
+function selectPaper(){
+  playerSelection = 'paper';
+  console.log(playerSelection)
+
+  const compareResult = comparePlayerAndCompSelection(playerSelection, computerSelection);
+  console.log(compareResult);
+}
+
+function selectScissors(){
+  playerSelection = 'scissors';
+  console.log(playerSelection)
+
+  const compareResult = comparePlayerAndCompSelection(playerSelection, computerSelection);
+  console.log(compareResult);
+}
 
 function displayWinner() {
   if (playerScore > compScore) {
-    alert(`You Win! \n Your Score: ${playerScore} \n computer score: ${compScore} \n how many ties you had: ${ties}`);
+    console.log(`You Win! \n Your Score: ${playerScore} \n computer score: ${compScore} \n how many ties you had: ${ties}`);
   } else if (compScore > playerScore) {
-    alert(`Computer Wins! \n Your Score: ${playerScore} \n Computer score: ${compScore} \n how many ties you had: ${ties}`);
+    console.log(`Computer Wins! \n Your Score: ${playerScore} \n Computer score: ${compScore} \n how many ties you had: ${ties}`);
   } else {
-    alert(`"it's a tie \n Your Score: ${playerScore} \n computer score ${compScore}  \n how many ties you had: ${ties}`);
+    console.log(`"it's a tie \n Your Score: ${playerScore} \n computer score ${compScore}  \n how many ties you had: ${ties}`);
   }
 }
 
+const gameResult = document.querySelector('.result');
+const gameScore = document.createElement('p');
+gameResult.appendChild('gameScore')
 
-playGame();
-displayWinner();
+playRound()
